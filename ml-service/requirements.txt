@@ -4,16 +4,14 @@ uvicorn[standard]==0.25.0
 python-multipart==0.0.6
 
 # Machine Learning & Computer Vision
-opencv-python==4.8.1.78
+opencv-python-headless==4.8.1.78
 face-recognition==1.3.0
-dlib==19.24.2
 numpy==1.24.3
 pillow==10.1.0
 
-# Deep Learning (choose one based on preference)
-tensorflow==2.15.0
-# torch==2.1.2
-# torchvision==0.16.2
+# Deep Learning - Using PyTorch (more stable on Render)
+torch==2.1.0
+torchvision==0.16.0
 
 # Face Recognition Models
 facenet-pytorch==2.5.3
@@ -30,7 +28,6 @@ python-jose[cryptography]==3.3.0
 passlib[bcrypt]==1.7.4
 
 # Image Processing
-scikit-image==0.22.0
 scipy==1.11.4
 
 # API & HTTP
