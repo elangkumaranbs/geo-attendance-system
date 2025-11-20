@@ -1,20 +1,15 @@
-# Geo Attendance System - Docker Deployment Blueprint
-# Deploy ML Service + Backend to Render.com
-
-name: geo-attendance-system
-region: oregon
+# Geo Attendance System - Blueprint Configuration
 
 services:
-  # ML Service - Face Recognition & Processing
   - type: web
     name: geo-ml-service
-    runtime: docker
+    env: docker
     dockerfilePath: ./ml-service/Dockerfile
-    dockerContext: .
+    dockerContext: ./ml-service
     plan: free
     region: oregon
+    branch: main
     healthCheckPath: /health
-    autoDeploy: true
     envVars:
       - key: ENVIRONMENT
         value: production
@@ -25,16 +20,16 @@ services:
       - key: PORT
         value: 8000
     
-  # Backend API - Node.js Express Server
+  # Backend Docker Deployment
   - type: web
     name: geo-attendance-backend
-    runtime: docker
+    env: docker
     dockerfilePath: ./backend/Dockerfile
-    dockerContext: .
+    dockerContext: ./backend
     plan: free
     region: oregon
+    branch: main
     healthCheckPath: /health
-    autoDeploy: true
     envVars:
       - key: NODE_ENV
         value: production
