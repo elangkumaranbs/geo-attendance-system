@@ -1,6 +1,9 @@
 # Geo Attendance System - Docker Deployment Blueprint
 # Deploy ML Service + Backend to Render.com
 
+name: geo-attendance-system
+region: oregon
+
 services:
   # ML Service - Face Recognition & Processing
   - type: web
