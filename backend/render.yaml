@@ -1,0 +1,27 @@
+# Render Deployment Configuration for Backend
+
+# Build Command: npm install
+# Start Command: npm start
+
+services:
+  - type: web
+    name: geo-attendance-backend
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: ML_SERVICE_URL
+        sync: false
+      - key: CORS_ORIGIN
+        sync: false
+    healthCheckPath: /health

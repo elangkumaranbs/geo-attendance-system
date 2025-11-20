@@ -1,0 +1,12 @@
+# Railway Deployment Configuration for ML Service
+
+[build]
+builder = "NIXPACKS"
+
+[deploy]
+startCommand = "uvicorn app:app --host 0.0.0.0 --port $PORT"
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 10
+
+[env]
+PYTHONUNBUFFERED = "1"
